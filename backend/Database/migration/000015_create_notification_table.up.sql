@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS notifications (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT NOT NULL,
+    content VARCHAR(150) NOT NULL,
+    senderUUID VARCHAR(60) NOT NULL,
+    receiverUUID VARCHAR(60) NOT NULL,
+    at TEXT NOT NULL,
+    seen INTEGER NOT NULL DEFAULT 0,
+    targetid INTEGER NOT NULL DEFAULT 0,
+    FOREIGN KEY (senderUUID) REFERENCES users(uuid), 
+    FOREIGN KEY (receiverUUID) REFERENCES users(uuid)
+    );

@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS invite_group (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER NOT NULL,
+    target_user VARCHAR(60) NOT NULL,
+    pending INTEGER NOT NULL DEFAULT 1,
+    FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE,
+    FOREIGN KEY (target_user) REFERENCES users(uuid) ON DELETE CASCADE
+);

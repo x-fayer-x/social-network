@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_uuid VARCHAR(60) NOT NULL,
+    group_id INTEGER DEFAULT 0,
+    body TEXT NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    created_at TEXT NOT NULL,
+    img_path VARCHAR(100) NOT NULL DEFAULT '',
+    FOREIGN KEY (user_uuid) REFERENCES users(uuid) ON DELETE CASCADE,
+    FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE
+);

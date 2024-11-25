@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS event_members (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    choice int NOT NULL DEFAULT 0,
+    user_uuid VARCHAR(50) NOT NULL,
+    event_id INTEGER NOT NULL,
+    FOREIGN KEY (user_uuid) REFERENCES users(uuid) ON DELETE CASCADE,
+    FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE
+);

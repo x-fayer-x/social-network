@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS sessions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_uuid VARCHAR(60) NOT NULL UNIQUE,
+    session_token VARCHAR(60) NOT NULL UNIQUE,
+    expiration_date TEXT NOT NULL,
+    FOREIGN KEY (user_uuid) REFERENCES users(uuid) ON DELETE CASCADE
+);
